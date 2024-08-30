@@ -1,0 +1,33 @@
+.small-margin {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.result {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 1.5em;
+}
+
+tr {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+td {
+	padding: 10px;
+	border: 1px solid #000000;
+}
+
+input {
+	font-size: 1em;
+	width: 6em;
+}
+
+select {
+	font-size: 1em;
+}
+
+* {
+	width: fit-content;
+}

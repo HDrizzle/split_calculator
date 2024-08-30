@@ -1,0 +1,51 @@
+<!--
+   index.html
+   
+   Copyright 2022 Hadrian Ward <hadrian.f.ward@gmail.com>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+
+   how to use chart.js: https://www.w3schools.com/js/js_graphics_chartjs.asp
+   
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Site Statistics</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.37.1" />
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<script type="text/javascript" src="/stats/stats.js"></script>
+	<script type="text/javascript" src="/_weblib/js/extras.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+	<link rel="stylesheet" type="text/css" href="/styles.css" />
+</head>
+
+<body>
+	<h1>Site Statistics</h1>
+	<noscript>This website uses JavaScript to function and will not work without it, JavaScript is currently disabled on your browser.</noscript>
+	<button onclick="startUpdate()">Request update</button><span id="update-status"></span>
+	<div>
+		<h2>IP addresses</h2>
+		<table id="ip-address-table-data"></table>
+		<canvas id="site-visits-histogram" style="width:100%; max-width:700px;"></canvas>
+	</div>
+</body>
+
+</html>

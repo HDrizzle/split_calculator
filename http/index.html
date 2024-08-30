@@ -1,0 +1,126 @@
+<!--
+   index.html
+   
+   Copyright 2022 Hadrian Ward <hadrian.f.ward@gmail.com>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   for minifying js: https://jsminify.org/
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Split Calculator</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.37.1" />
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<script type="text/javascript" src="main.js"></script>
+	<script type="text/javascript" src="/_weblib/js/extras.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	<link rel="stylesheet" type="text/css" href="/_weblib/css/styles.css">
+</head>
+
+<body>
+	<div class="headline">
+		<h1>Track / XC split calculator</h1>
+		<noscript>This website uses JavaScript to function and will not work without it, JavaScript is currently disabled on your browser.</noscript>
+		<div style="font-size: 1.2em;">Since this IP address may be changed, it is advised to bookmark/share this site as <a href="http://tinyurl.com/splitcalculator">tinyurl.com/splitcalculator</a>.</div>
+		<div style="font-size: 1.2em;"><a href="http://tinyurl.com/predatorvsprey">Check out my other site!</a></div>
+		<div>
+			<img src="python_powered.png" alt="Python Logo"/><span>This website is running on a server written in Python 3</span>
+		</div>
+	</div>
+	<div>
+		<div>
+			<h3 style="font-size: 1.7em;">How to use</h3>
+			<p class="small-margin">
+				This page calculates your speed and uses it to extrapolate split times over a given distance (assuming you stay at a constant pace). It also works backwards if the split time is changed.
+			</p>
+			<p class="small-margin">
+				Changing any fields / dropdowns will update all results and the split time entry. Changing the split time will update the race finish time entry.
+			</p>
+			<div style="font-size: 2em;">
+				<span>Rounding</span>
+				<select id="rounding" onchange="update(0)">
+					<option value="1" selected>1 sec</option>
+					<option value="10">0.1 sec</option>
+				</select>
+			</div>
+		</div>
+		<div style="font-size: 1.7em;">
+			<h3>Race</h3>
+			<div class="small-margin">
+				<span>Distance</span>
+				<span>
+					<input id="race-length" type="number" min="0" value="5" onchange="update(0)"/>
+					<select id="race-units" onchange="update(0)">
+						<option value="m">Meters</option>
+						<option value="km" selected>Kilometers</option>
+						<option value="mi">Miles</option>
+						<option value="marathon">Marathon</option>
+					</select>
+				</span>
+			</div>
+			<div class="small-margin">
+				<span>Time (HH:MM:SS / MM:SS / SS)</span>
+				<input id="race-time" type="text" value="18:00" onChange="update(0)">
+			</div>
+		</div>
+		<div style="font-size: 1.7em;">
+			<h3>Splits</h3>
+			<div class="small-margin">
+				<span>Distance</span>
+				<span>
+					<input id="split-length" type="number" min="0" value="1" onchange="update(0)"/>
+					<select id="split-units" onchange="update(0)">
+						<option value="m">Meters</option>
+						<option value="km">Kilometers</option>
+						<option value="mi" selected>Miles</option>
+						<option value="marathon">Marathon</option>
+					</select>
+				</span>
+			</div>
+			<div class="small-margin">
+				<span>Time (HH:MM:SS / MM:SS / SS)</span>
+				<input id="split-time" type="text" onChange="update(1)">
+			</div>
+		</div>
+	</div>
+	<div style="font-size: 1.7em;">
+		<h3>Results</h3>
+		<div>
+			<table>
+				<tr>
+					<td class="result">Speed</td><td><code class="result" id="speed-result"></code></td>
+				</tr>
+				<tr>
+					<td class="result">Mile pace</td><td><code class="result" id="mile-time-result"></code></td>
+				</tr>
+				<tr>
+					<td class="result">Finish</td><td><code class="result" id="race-result"></code></td>
+				</tr>
+				<tr>
+					<td><div class="result">Splits</div><span>Show all</span><input type="checkbox" id="checkbutton-show-all-splits" onchange="updateSplitResults()" /></td><td><pre class="result" id="split-result"></pre></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
